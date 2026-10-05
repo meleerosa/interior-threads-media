@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내집지도 링크</title>
+<meta name="description" content="내집지도(@myhouse.map) — 2030 무주택 실수요자를 위한 청약·대출·내집마련 정리. 무료 자료와 채널 링크.">
+<meta property="og:title" content="내집지도 @myhouse.map">
+<meta property="og:description" content="청약·대출·내집마련, 공식 자료로 사실만 정리해요. 무료 PDF 3종.">
+<meta property="og:image" content="assets/logo.png">
+<meta name="theme-color" content="#1E4FD8">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<!--
+  링크 허브 (STEPS 40, PLAN §9-2 2단계) — GitHub Pages 에 site/ 를 그대로 올린다. 외부 의존성은 Google Fonts 뿐.
+  견적 문의 폼은 LEAD_ENDPOINT 로 JSON POST 한다. 지금은 자리표시자라 전송하지 않고 "준비 중" 안내만 한다.
+  상시 주소는 interior 의 ig-webhook 처럼 Cloudflare Worker(*.workers.dev) — 초안: site/worker/lead_form_worker.js, 설명: site/README.md.
+-->
+<style>
+:root{
+  --blue:#1E4FD8; --blue-ink:#163CA8; --orange:#FF7A1A; --orange-ink:#B84F00;
+  --bg:#F6F8FC; --card:#FFFFFF; --ink:#1E222C; --sub:#5F6A7A; --line:#DCE3EE; --tint:#EAF0FD;
+  --ok:#137A4B; --err:#B42318;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --blue:#6F95FF; --blue-ink:#A9C0FF; --orange:#FF9A4D; --orange-ink:#FFB37A;
+    --bg:#0F131B; --card:#171C27; --ink:#E8ECF4; --sub:#A3ADBD; --line:#2A3242; --tint:#1C2640;
+    --ok:#5BD49A; --err:#FF8A80;
+  }
+}
+:root[data-theme="dark"]{
+  --blue:#6F95FF; --blue-ink:#A9C0FF; --orange:#FF9A4D; --orange-ink:#FFB37A;
+  --bg:#0F131B; --card:#171C27; --ink:#E8ECF4; --sub:#A3ADBD; --line:#2A3242; --tint:#1C2640;
+  --ok:#5BD49A; --err:#FF8A80;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:#1E4FD8;color:#fff;padding:32px 16px 28px;text-align:center}
+header.hero img{width:88px;height:88px;border-radius:22px;display:block;margin:0 auto 12px;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+header.hero h1{margin:0;font-size:24px;font-weight:700;letter-spacing:-.02em}
+header.hero .handle{margin:2px 0 10px;opacity:.85;font-size:14px}
+header.hero p{margin:0 auto;max-width:340px;font-size:15px;opacity:.95}
+header.hero .pin{display:inline-block;width:40px;height:4px;border-radius:2px;background:#FF7A1A;margin-top:14px}
+h2{font-size:17px;margin:28px 0 10px;display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--orange)}
+.links{display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:12px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);text-decoration:none;font-weight:500}
+.btn:hover{border-color:var(--blue)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.btn .t{display:flex;flex-direction:column;min-width:0}
+.btn small{color:var(--sub);font-weight:400;font-size:13px}
+.btn .go{flex:none;font-size:13px;color:var(--blue);font-weight:700}
+.btn[aria-disabled="true"]{opacity:.6;pointer-events:none}
+.res{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:6px}
+.res .tag{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);background:var(--tint);border-radius:999px;padding:2px 10px;justify-self:start}
+.res h3{margin:0;font-size:16px}
+.res p{margin:0;color:var(--sub);font-size:14px}
+.res .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.res a.dl{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:14px}
+:root[data-theme="dark"] .res a.dl{color:#0F131B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .res a.dl{color:#0F131B}}
+.res .kw{font-size:13px;color:var(--sub);align-self:center}
+.res .kw b{color:var(--orange-ink)}
+.note{font-size:13px;color:var(--sub);margin:8px 2px 0}
+form.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:14px}
+label,.lbl{font-size:14px;font-weight:500;display:block;margin-bottom:6px}
+.req{color:var(--orange-ink);font-weight:700}
+input[type=text],input[type=tel],input[type=email],input[type=month],select,textarea{width:100%;min-height:46px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+textarea{min-height:90px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:inline-flex;align-items:center;gap:6px;margin:0;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);font-weight:400;cursor:pointer}
+.chips input{width:18px;height:18px;accent-color:var(--blue)}
+.consent{background:var(--tint);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ink)}
+.consent summary{cursor:pointer;font-weight:700;font-size:14px;min-height:28px}
+.consent table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.consent th,.consent td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.consent th{width:34%;font-weight:500;color:var(--sub)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:0}
+.check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--blue)}
+button[type=submit]{min-height:52px;border:0;border-radius:12px;background:var(--orange);color:#1E222C;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+button[type=submit]:disabled{opacity:.6;cursor:default}
+.status{font-size:14px;min-height:1.6em;margin:0}
+.status.ok{color:var(--ok)} .status.err{color:var(--err)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px}
+.box p{margin:0 0 8px}.box p:last-child{margin:0}
+footer{margin-top:32px;font-size:12px;color:var(--sub);text-align:center}
+footer p{margin:4px 0}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="assets/logo.png" alt="내집지도 로고" width="88" height="88">
+  <h1>내집지도</h1>
+  <div class="handle">@myhouse.map</div>
+  <p>청약·대출·내집마련, 공식 자료로 사실만 정리해요. 2030 무주택 실수요자를 위한 지도 한 장 정리.</p>
+  <span class="pin" aria-hidden="true"></span>
+</header>
+
+<main class="wrap">
+  <h2>채널</h2>
+  <nav class="links" aria-label="채널 링크">
+    <a class="btn" href="https://www.instagram.com/myhouse.map/" target="_blank" rel="noopener">
+      <span class="t">인스타그램<small>카드 정리 · 댓글로 무료 PDF 받기</small></span><span class="go">열기</span></a>
+    <a class="btn" href="https://www.threads.com/@myhouse.map" target="_blank" rel="noopener">
+      <span class="t">쓰레드<small>오늘의 내집마련 질문</small></span><span class="go">열기</span></a>
+    <a class="btn" href="https://blog.naver.com/myhouse_map" target="_blank" rel="noopener" id="blog-link">
+      <span class="t">네이버 블로그<small>긴 글 · 표 · 출처 정리</small></span><span class="go">열기</span></a>
+  </nav>
+
+  <h2 id="free">무료 자료 3종</h2>
+  <div class="links">
+    <article class="res">
+      <span class="tag">R1 · 청약</span>
+      <h3>청약 가점 자가진단표</h3>
+      <p>무주택기간·부양가족·청약통장 점수표와 계산 예시. 주택공급에 관한 규칙 별표1 기준.</p>
+      <div class="row"><a class="dl" href="files/R1_gajeom.pdf" download>PDF 받기</a><span class="kw">인스타 댓글 <b>'가점'</b></span></div>
+    </article>
+    <article class="res">
+      <span class="tag">R2 · 신혼부부</span>
+      <h3>신혼부부 내집마련 로드맵</h3>
+      <p>신혼부부·생애최초 특별공급 자격, 정책대출 대상 조건, 계약·입주 순서 체크리스트.</p>
+      <div class="row"><a class="dl" href="files/R2_roadmap.pdf" download>PDF 받기</a><span class="kw">인스타 댓글 <b>'로드맵'</b></span></div>
+    </article>
+    <article class="res">
+      <span class="tag">R3 · 입주</span>
+      <h3>입주 사전점검 체크리스트</h3>
+      <p>주택법이 정한 사전방문 일정과 하자 조치 기한, 공간별 점검 항목, 이사 순서.</p>
+      <div class="row"><a class="dl" href="files/R3_precheck.pdf" download>PDF 받기</a><span class="kw">인스타 댓글 <b>'점검'</b></span></div>
+    </article>
+  </div>
+  <p class="note">자료는 정보 제공 목적이에요. 개별 자격은 청약홈·주택도시기금 공식 안내로 꼭 확인해 주세요. 매수 권유·대출 상품 추천을 하지 않아요.</p>
+
+  <h2 id="quote">입주 준비 견적 문의</h2>
+  <form class="card" id="lead-form" novalidate>
+    <p class="note" style="margin:0">입주청소·이사·인테리어 견적이 필요하시면 남겨 주세요. 동의하신 범위에서 제휴 업체에 전달해 연락드려요. 대출·매물 상담은 받지 않아요.</p>
+    <div>
+      <label for="f-name">이름(또는 별칭) <span class="req">*</span></label>
+      <input type="text" id="f-name" name="name" autocomplete="name" maxlength="30" required>
+    </div>
+    <div>
+      <label for="f-contact">연락처 (휴대폰 또는 이메일) <span class="req">*</span></label>
+      <input type="text" id="f-contact" name="contact" autocomplete="tel" inputmode="text" maxlength="60" required>
+    </div>
+    <div>
+      <label for="f-region">입주 지역 (시·구) <span class="req">*</span></label>
+      <input type="text" id="f-region" name="region" placeholder="예: 경기 화성시" maxlength="40" required>
+    </div>
+    <div>
+      <label for="f-when">입주 예정 시기</label>
+      <input type="month" id="f-when" name="move_in">
+    </div>
+    <fieldset style="border:0;padding:0;margin:0">
+      <legend class="lbl">필요한 견적 <span class="req">*</span></legend>
+      <div class="chips">
+        <label><input type="checkbox" name="service" value="입주청소"> 입주청소</label>
+        <label><input type="checkbox" name="service" value="이사"> 이사</label>
+        <label><input type="checkbox" name="service" value="인테리어"> 인테리어</label>
+      </div>
+    </fieldset>
+    <div>
+      <label for="f-size">평형·세대 정보</label>
+      <select id="f-size" name="size">
+        <option value="">선택 안 함</option>
+        <option>전용 60㎡ 이하</option>
+        <option>전용 60~85㎡</option>
+        <option>전용 85㎡ 초과</option>
+      </select>
+    </div>
+    <div>
+      <label for="f-memo">요청 사항</label>
+      <textarea id="f-memo" name="memo" maxlength="500" placeholder="새 아파트 입주, 희망 일정 등"></textarea>
+    </div>
+    <div class="hp" aria-hidden="true"><label for="f-web">웹사이트</label><input type="text" id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+
+    <div class="consent" id="privacy">
+      <details>
+        <summary>개인정보 수집·이용 안내 (필수)</summary>
+        <table>
+          <tr><th>수집 항목</th><td>이름(또는 별칭), 연락처, 입주 지역, 입주 예정 시기, 필요한 견적, 평형, 요청 사항</td></tr>
+          <tr><th>목적</th><td>견적 문의 응대 및 제휴 업체 연결</td></tr>
+          <tr><th>보유 기간</th><td>문의일부터 6개월 후 파기 (법령에 따라 보관이 필요한 경우 그 기간)</td></tr>
+        </table>
+        <p style="margin:0">동의를 거부할 수 있으며, 거부하시면 견적 문의를 받을 수 없어요.</p>
+      </details>
+      <p class="check" style="margin-top:8px"><input type="checkbox" id="c-collect" name="consent_collect" required><label for="c-collect" style="margin:0;font-weight:400">개인정보 수집·이용에 동의합니다. <span class="req">*</span></label></p>
+      <details style="margin-top:10px">
+        <summary>개인정보 제3자 제공 안내 (필수)</summary>
+        <table>
+          <tr><th>받는 자</th><td>선택하신 분야의 제휴 업체 (업체 확정 후 이 페이지에 상호 공개)</td></tr>
+          <tr><th>목적</th><td>견적 상담 연락</td></tr>
+          <tr><th>항목</th><td>이름(또는 별칭), 연락처, 입주 지역·시기, 필요한 견적, 평형, 요청 사항</td></tr>
+          <tr><th>보유 기간</th><td>상담 종료 후 지체 없이 파기 (최대 6개월)</td></tr>
+        </table>
+        <p style="margin:0">동의를 거부할 수 있으며, 거부하시면 업체 연결을 할 수 없어요.</p>
+      </details>
+      <p class="check" style="margin-top:8px"><input type="checkbox" id="c-share" name="consent_share" required><label for="c-share" style="margin:0;font-weight:400">제휴 업체에 위 정보를 제공하는 데 동의합니다. <span class="req">*</span></label></p>
+    </div>
+
+    <button type="submit" id="submit">견적 문의 보내기</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <h2 id="ads">광고·제휴 문의</h2>
+  <div class="box">
+    <p>콘텐츠 협업·광고·B2B 문의는 인스타그램 DM으로 받아요.</p>
+    <a class="btn" href="https://ig.me/m/myhouse.map" target="_blank" rel="noopener"><span class="t">DM 보내기<small>@myhouse.map</small></span><span class="go">열기</span></a>
+    <p class="note">광고·협찬 콘텐츠에는 '유료광고' 등 표기를 분명히 해요. 매물 광고·분양 대행·대출 관련 제휴는 받지 않아요.</p>
+  </div>
+
+  <footer>
+    <p>© 내집지도 @myhouse.map · 정보 제공 목적, 개별 자격은 청약홈·기금 공식 확인</p>
+    <p>이 페이지는 쿠키·방문 추적 스크립트를 쓰지 않아요.</p>
+  </footer>
+</main>
+
+<script>
+/* 견적 폼 → LEAD_ENDPOINT (Cloudflare Worker, site/worker/lead_form_worker.js). 자리표시자인 동안은 보내지 않는다. */
+const LEAD_ENDPOINT = "https://LEAD_WORKER_PLACEHOLDER.workers.dev/lead";
+(function () {
+  const form = document.getElementById("lead-form");
+  const status = document.getElementById("status");
+  const btn = document.getElementById("submit");
+  function say(msg, kind) { status.textContent = msg; status.className = "status " + (kind || ""); }
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const services = fd.getAll("service");
+    const need = [["name", "이름"], ["contact", "연락처"], ["region", "입주 지역"]];
+    for (const [k, label] of need) {
+      if (!String(fd.get(k) || "").trim()) { say(label + "을(를) 적어 주세요.", "err"); form.elements[k].focus(); return; }
+    }
+    if (!services.length) { say("필요한 견적을 하나 이상 골라 주세요.", "err"); return; }
+    if (!fd.get("consent_collect") || !fd.get("consent_share")) { say("필수 동의 두 가지에 체크해 주세요.", "err"); return; }
+    if (fd.get("website")) { say("접수됐어요.", "ok"); return; }   // 스팸 봇(숨은 칸) — 조용히 버린다
+    if (LEAD_ENDPOINT.includes("PLACEHOLDER")) { say("견적 문의 접수는 준비 중이에요. 곧 열게요!", "err"); return; }
+    const payload = {
+      name: fd.get("name").trim(), contact: fd.get("contact").trim(), region: fd.get("region").trim(),
+      move_in: fd.get("move_in") || "", services: services, size: fd.get("size") || "", memo: (fd.get("memo") || "").trim(),
+      consent: { collect: true, share: true, version: "2026-10-05" }, page: location.href
+    };
+    btn.disabled = true; say("보내는 중…");
+    try {
+      const r = await fetch(LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!r.ok) throw new Error(r.status);
+      form.reset(); say("접수됐어요. 확인 후 연락드릴게요.", "ok");
+    } catch (err) {
+      say("전송에 실패했어요. 잠시 후 다시 시도하거나 인스타 DM으로 남겨 주세요.", "err");
+    } finally { btn.disabled = false; }
+  });
+})();
+</script>
+</body>
+</html>
