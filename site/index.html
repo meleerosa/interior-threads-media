@@ -14,7 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <!--
-  링크 허브 — lib/link_hub.py 가 이 템플릿에 업체용 자료(output/resources/*/current.json)를 끼워 site/index.html 을 만들고
+  링크 허브 — lib/link_hub.py 가 이 템플릿에 업체용 자료(output/resources/*/current.json)·쿠팡·오늘의집 링크 섹션과
+  맨 위 경제적 이해관계 문구(정책 파일 disclosure 그대로)를 끼워 site/index.html 을 만들고
   GitHub Pages(meleerosa/interior-threads-media, 경로 site/)에 올린다. 직접 index.html 을 고치지 말고 이 파일을 고친다.
   외부 의존성은 Google Fonts 뿐. 쿠키·방문 추적 없음.
 -->
@@ -74,12 +75,18 @@ h2::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--a
 .shop a:hover{border-color:var(--acc)}
 .shop a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .shop small{color:var(--sub);font-weight:400;font-size:12px}
+.topdisc{background:var(--tint);color:var(--ink);font-size:13px;font-weight:500;line-height:1.5;padding:10px 16px;text-align:center}
+.topdisc p{margin:0 auto;max-width:480px}
 .disc{font-size:12px;color:var(--sub);background:var(--tint);border-radius:10px;padding:8px 12px;margin:0 0 10px}
 footer{margin-top:32px;font-size:12px;color:var(--sub);text-align:center}
 footer p{margin:4px 0}
 </style>
 </head>
 <body>
+<div class="topdisc" role="note">
+  <p>이 포스팅은 오늘의집 큐레이터 활동의 일환으로, 구매시 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  <p>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
 <header class="hero">
   <img src="assets/logo.png" alt="인테리어 팁.zip 로고" width="88" height="88">
   <h1>인테리어 팁.zip</h1>
@@ -150,16 +157,30 @@ footer p{margin:4px 0}
   <h2 id="shop">셀프 수리 인기 자재</h2>
   <p class="disc">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
   <div class="shop">
-    <a href="https://link.coupang.com/a/ivHFQeVy1c" target="_blank" rel="noopener sponsored">실리콘<small>카페 글 235건</small></a>
+    <a href="https://link.coupang.com/a/ivHFQeVy1c" target="_blank" rel="noopener sponsored">실리콘<small>카페 글 239건</small></a>
     <a href="https://link.coupang.com/a/ivHGbaE44G" target="_blank" rel="noopener sponsored">간접조명<small>카페 글 67건</small></a>
+    <a href="https://link.coupang.com/a/ivHFTPDbxI" target="_blank" rel="noopener sponsored">시트지<small>카페 글 33건</small></a>
     <a href="https://link.coupang.com/a/ivHGgejPNY" target="_blank" rel="noopener sponsored">블라인드<small>카페 글 33건</small></a>
-    <a href="https://link.coupang.com/a/ivHFTPDbxI" target="_blank" rel="noopener sponsored">시트지<small>카페 글 31건</small></a>
     <a href="https://link.coupang.com/a/ivHFY1mcuW" target="_blank" rel="noopener sponsored">인테리어 필름<small>카페 글 27건</small></a>
     <a href="https://link.coupang.com/a/ivHGejH14u" target="_blank" rel="noopener sponsored">경첩<small>카페 글 27건</small></a>
-    <a href="https://link.coupang.com/a/ivHGeCYeho" target="_blank" rel="noopener sponsored">문 손잡이<small>카페 글 22건</small></a>
+    <a href="https://link.coupang.com/a/ivHGeCYeho" target="_blank" rel="noopener sponsored">문 손잡이<small>카페 글 23건</small></a>
     <a href="https://link.coupang.com/a/ivHGakdsWq" target="_blank" rel="noopener sponsored">센서등<small>카페 글 21건</small></a>
   </div>
   <p class="note">최근 30일 셀프인테리어 카페 글에 많이 나온 자재예요. 누르면 쿠팡 검색 결과로 가요(특정 제품 추천 아님).</p>
+
+  <h2 id="ohouse">공간·시공 사례 찾아보기</h2>
+  <p class="disc">이 포스팅은 오늘의집 큐레이터 활동의 일환으로, 구매시 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  <div class="shop">
+    <a href="https://ozip.me/Ru7LfPI?af" target="_blank" rel="noopener sponsored">도배<small>카페 글 702건</small></a>
+    <a href="https://ozip.me/atQui3b?af" target="_blank" rel="noopener sponsored">샷시<small>카페 글 425건</small></a>
+    <a href="https://ozip.me/skVIKLF?af" target="_blank" rel="noopener sponsored">싱크대<small>카페 글 315건</small></a>
+    <a href="https://ozip.me/OVUcLJa?af" target="_blank" rel="noopener sponsored">장판<small>카페 글 250건</small></a>
+    <a href="https://ozip.me/0R6zUQV?af" target="_blank" rel="noopener sponsored">실링팬<small>카페 글 214건</small></a>
+    <a href="https://ozip.me/QkTk9HI?af" target="_blank" rel="noopener sponsored">붙박이장<small>카페 글 213건</small></a>
+    <a href="https://ozip.me/vIewz7v?af" target="_blank" rel="noopener sponsored">걸레받이<small>카페 글 195건</small></a>
+    <a href="https://ozip.me/yV4ycRp?af" target="_blank" rel="noopener sponsored">세면대<small>카페 글 122건</small></a>
+  </div>
+  <p class="note">최근 30일 셀프인테리어 카페 글에 많이 나온 공간·시공이에요. 누르면 오늘의집 검색 결과(집 사진·노하우·상품)로 가요(특정 제품 추천 아님).</p>
 
   <h2 id="biz">업체 SNS 자동 운영 — 무료 파일럿</h2>
   <div class="box">
